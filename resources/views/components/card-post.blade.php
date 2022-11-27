@@ -51,7 +51,7 @@
         <div class="mt-3">
             @foreach ($posts->skip(1)->take(3) as $item)
                 <div class="flex mt-4">
-                    <img src="/images/{{ $item->image }}" class="kucukImg object-cover">
+                    <img src="/images/{{ $item->image }}" class="w-4/12 h-24 object-cover">
                     <div class="pl-3 w-full items-center py-3">
                         <div class="text-xs">
                             <i class="fas fa-clock text-xs object-cover"></i> &nbsp;
