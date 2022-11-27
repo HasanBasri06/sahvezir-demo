@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+#breakingNew {
+    width: 100%;
+    height: 35px;
+}
+
+#logoBox {
+    width: 100%;
+    height: 125px;
+}
+
+#menuBox {
+    width: 100%;
+    height: 60px;
+}
+
+.search input,
+.search button {
+    background: none;
+    height: 60px;
+}
+
+#brekingNews {
+    padding: 0 10px;
+    height: 35px;
+    background-color: red;
+}
+
+@media screen and (min-width:1368px) {
+    .bigBox {
+        margin: 0 auto;
+        max-width: 1368px;
+    }
+}
+
+.sliderTitle {
+    margin-top: -100px;
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+
+.darkTheme {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.049), rgba(0, 0, 0, 0.9));
+    z-index: 99;
+    transition: all .3s ease-in-out;
+
+}
+
+.darkThemeAbs {
+    position: relative;
+    width: 100%;
+    top: -100%;
+    z-index: 97;
+}
+
+.darkThemeTitle {
+    position: relative;
+    z-index: 98;
+    top: 72%;
+}
+
+.darkThemeDetail {
+    position: relative;
+    top: 75%;
+}
+
+.darkThemeTitleWeight {
+    position: relative;
+    z-index: 98;
+    top: 65%;
+}
+
+.darkThemeDetailWeight {
+    position: relative;
+    top: 68%;
+}
+
+.darkThemeTitleMiddle {
+    position: relative;
+    z-index: 98;
+    top: 45%;
+}
+
+.darkThemeDetailMiddle {
+    position: relative;
+    top: 50%;
+}
+
+.darkThemeTitleSlim {
+    position: relative;
+    z-index: 98;
+    top: 60%;
+}
+
+.darkThemeDetailSlim {
+    position: relative;
+    top: 65%;
+}
+
+
+#ads {
+    width: 100%;
+    height: 350px;
+}
+
+.bigCategory {
+    height: auto;
+}
+
+.kucukImg {
+    width: 33%;
+    height: auto;
+}
+
+.leftLine {
+    width: 100%;
+    height: 1px;
+    background-color: gainsboro;
+}
+
+.rightLine {
+    width: 100%;
+    height: 1px;
+    background-color: gainsboro;
+}
+
+@media screen and (min-width:1368px) {
+    .bigBox {
+        margin: 0 auto;
+        max-width: 1368px;
+    }
+}
+
+/* #eksi{ */
+    /* margin-top: -185px; */
+/* } */
+
+.body-content{
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.049), rgba(0, 0, 0, 0.637));
+}
+.body-rel{
+    top: -320px;
+}
+
+.menuFx{
+    position: fixed;
+    top: 0;
+    opacity: 0.5;
+    z-index: 999;
+    transition: all .4s ease;
+    animation-delay: 2ms;
+    background-color: gainsboro;
+}
+.menuFx input{
+    background-color: gainsboro;
+    border-left: 1px solid gainsboro;
+}
+.menuFx:hover{
+    opacity: 1;
+    cursor: pointer;
+    
+}
+
+.rightPanelOne{
+    position: sticky;
+    top: 70px;
+    transition: all .4s ease-in-out;
+}
+.rightPanelOneFx{
+    margin-top: 433px;
+}
+.ft_ultra{
+    font-family: 'Ultra';
+}
