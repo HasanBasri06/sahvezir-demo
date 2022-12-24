@@ -17,20 +17,25 @@ class HomeController extends Controller
 
         $posts = Post::with('category')->orderBy('id', 'desc')->get();
 
-        $tecPosts = Post::where('category_id', 1)->paginate(7);
+        $tecPosts = Post::latest()->where('category_id', 1)->paginate(7)->withQueryString();
+        
         $tecPosts->withPath('/kategori/teknoloji');
 
 
-        $gamePosts = Post::with('category')->where('category_id',2)->get();
-        $socialMediaPosts = Post::latest()->with('category')->where('category_id',6)->get();
-
+        
+        $gamePosts = Post::latest()->with('category')->where('category_id',2)->get();
+        $socialMediaPosts = Post::latest()->with('category')->where('category_id',5)->get();
+        
+        $gundemPosts = Post::latest()->where('category_id', 7)->get();
 
 
         return view("app", [
             "posts" => $posts,
             "tecPosts" => $tecPosts,
             "gamePosts" => $gamePosts,
-            "socialMediaPosts" => $socialMediaPosts
+            "socialMediaPosts" => $socialMediaPosts,
+            "gundemPosts" => $gundemPosts,
+
         ]);
     }
 }

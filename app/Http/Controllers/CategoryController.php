@@ -15,12 +15,17 @@ class CategoryController extends Controller
 
         $posts = Category::find($categoryId->id)->posts()->with('category')->paginate(10);
 
-        // $posts = Category::where('slug', $slug)->with('posts')->get();
+        $lastTreePost = Category::find($categoryId->id)->posts()->with('category')->get();
+
+        $gundemPosts = Post::latest()->where('category_id', 7)->get();
         
 
         return view('category', [
             "slug" => $slug,
-            "categoryList" => $posts
+            "categoryList" => $posts,
+            "gundemPosts" => $gundemPosts,
+            "lastTreePost" => $lastTreePost
+
         ]);      
     }
 }

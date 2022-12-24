@@ -1,122 +1,79 @@
 <x-header>
     <div class="bigBox">
-        <div class="w-11/12 m-auto mt-3">
 
-            <h3 class="text-sm text-gray-500 mt-8">
-                <a href='/' style="color:dodgerblue;">
-                    Home
-                </a> / {{ Str::ucfirst($slug) }}
-            </h3>
-
-
-            @if (count($categoryList) < 1)
-                <div class="w-full text-red-900 mt-5 text-xl font-bold">{{ Str::ucfirst($slug) }} İle İlgili Haber
-                    Bulunamamıştır.</div>
-            @else
-                <h3 class="mt-5 font-bold text-2xl">{{ Str::ucfirst($slug) }} İlgili Haberler </h3>
-
-                <div class="w-full  h-80 mt-3 grid grid-cols-4 grid-flow-col gap-4">
-                    <div class="mt-8">
-                        <img src="/images/images6.jpg" alt="" class="object-cover z-0 w-full">
-                        <div class="body -mt-8 drop-shadow-xl p-5 bg-white w-11/12  z-10 relative">
-                            <h4 class="text-xs text-gray-500">{{ $categoryList[0]->category->name }}</h4>
-                            <h4 class="font-bold mt-2 text-gray-800 h-12">
-                                @if (Str::length($categoryList[0]->title) > 40)
-                                    {{ Str::substr($categoryList[0]->title, 0, 40) }} . . .
-                                @else
-                                    {{ $categoryList[0]->title }}
-                                @endif
-                            </h4>
-                            <h4 class="text-xs text-gray-500 mt-2">0 yorum</h4>
-                        </div>
-                    </div>
-
-                    <div class=" col-span-2">
-                        <div class="body-content h-80 px-4 ">
-                            <div class="bottom-8 absolute text-white ">
-                                <h3 class="text-xs">{{ Str::ucfirst($slug) }}</h3>
-                                <h3 class="text-3xl mt-2 font-bold">
-                                    @if (Str::length($categoryList[1]->title) > 65)
-                                        {{ Str::substr($categoryList[1]->title, 0, 65) }} . . .
-                                    @else
-                                        {{ $categoryList[1]->title }}
-                                    @endif
-                                </h3>
-                            </div>
-                        </div>
-                        <img src="/images/images8.jpg" class="w-full relative top-0 body-rel object-cover h-80"
-                            alt="">
-                    </div>
-
-                    <div class="mt-8">
-                        <img src="/images/images7.jpg" alt="" class="object-cover z-0 w-full">
-                        <div class="body -mt-8 drop-shadow-xl p-5 bg-white w-11/12  z-10 relative">
-                            <h4 class="text-xs text-gray-500">{{ $categoryList[2]->category->name }}</h4>
-                            <h4 class="font-bold mt-2 text-gray-800 h-12">
-                                @if (Str::length($categoryList[2]->title) > 40)
-                                    {{ Str::substr($categoryList[2]->title, 0, 45) }} . . .
-                                @else
-                                    {{ $categoryList[2]->title }}
-                                @endif
-                            </h4>
-                            <h4 class="text-xs text-gray-500 mt-2">0 yorum</h4>
-                        </div>
+        <div class="flex w-11/12 m-auto mt-5">
+            <div class="max-sm:flex-col max-sm:h-auto flex h-80 justify-between gap-8">
+                <div class="max-sm:w-full h-full w-2/4 mt-6">
+                    <img src="/images/post/images7.jpg" class="max-sm:h-60 max-sm:-mt-7 h-44 z-10 w-full object-cover" alt="">
+                    <div
+                        class="max-sm:w-full w-11/12 h-32 bg-white shadow-lg -mt-8 z-20 relative py-1 px-3 flex flex-col justify-around">
+                        <h3 class="mt-1 text-xs text-gray-600">{{ $lastTreePost[0]->category->name }}</h3>
+                        <h4 class="text-sm mt-1 text-gray-800">{{ $lastTreePost[0]->title }}</h4>
+                        <span class="flex items-center mt-1 text-xs gap-5 text-gray-600">
+                            <span>
+                                <i class="fas fa-comment"></i> {{ $lastTreePost[0]->comment->count() }}
+                            </span>
+                            Şahvezir
+                        </span>
                     </div>
                 </div>
 
+                <div class="max-sm:w-full h-full w-3/4 font-bold">
 
-
-            @endif
-
-
-        </div>
-        @if (count($categoryList) > 0)
-            <div class="flex px-16 shadow-2xl py-3 h-auto w-full mt-5 bg-white">
-                <div class="w-9/12 pr-2 min-h-screen">
-                    <div>
-                        <h3 class="font-bold text-xl text-blue-400">{{Str::ucfirst($slug)}} Haberleri</h3>
-
-                        {{-- teknoloji haberleri kutusu --}}
-                        @foreach ($categoryList->skip(3) as $post)
-                            <x-post-card :post="$post"></x-post-card>
-                        @endforeach
-
-                        @if (count($categoryList->skip(3)) > 10)
-                            <div class="mt-7 w-full flex items-center gap-4">
-                                <i
-                                    class="fas fa-solid fa-caret-left cursor-pointer py-1 px-1 text-xl cursor-pointer"></i>
-                                @for ($i = 1; $i <= 3; $i++)
-                                    @php
-                                        $active = $i == 1 ? 'bg-blue-400 text-white' : null;
-                                    @endphp
-                                    <span class="{{ $active }} px-2  cursor-pointer">{{ $i }}</span>
-                                @endfor
-                                <i
-                                    class="fas fa-solid fa-caret-right cursor-pointer py-1 px-1 text-xl cursor-pointer"></i>
-                            </div>
-                        @endif
-
-                        <div class="mt-7 ">
-                            {{ $categoryList->links() }}
-                        </div>
-
-                        {{-- teknoloji haberleri kutusu bitiş --}}
-
-                        <div>
-
-                        </div>
-
+                    <img src="/images/post/images7.jpg" class="w-full h-full object-cover" alt="">
+                    <div
+                        class="flex flex-col justify-end py-7 px-5 text-white bottom-10 w-full h-full relative -top-full  bg-gradient-to-t from-zinc-900 hover:from-zinc-800">
+                        <h2 class="text-xs">{{ $lastTreePost[1]->category->name }}</h2>
+                        <h3 class="text-xl font-bold uppercase">
+                            {{ $lastTreePost[1]->title }}
+                        </h3>
+                        <span class="flex text-sm mt-2 gap-3 items-center">
+                            <h4>
+                                <i class="fas fa-comment"></i> 0
+                            </h4>
+                            <h4>
+                                <i class="fas fa-user"></i> &nbsp; Şahvezir
+                            </h4>
+                        </span>
                     </div>
+
                 </div>
-                <div class="w-3/12 pl-2">
-                    <div class="w-full mt-4 h-24 transition" id="panel1">
-                        <x-right-panel></x-right-panel>
+
+                <div class="max-sm:w-full h-full w-2/4 mt-6">
+                    <img src="/images/post/image2.png" class="max-sm:h-60 max-sm:-mt-7 h-44  z-10 w-full object-cover" alt="">
+                    <div
+                        class="max-sm:w-full w-11/12 h-32 bg-white shadow-lg -mt-8 z-20 relative py-1 px-3 flex flex-col justify-around">
+                        <h3 class="mt-1 text-xs text-gray-600"> {{ $lastTreePost[2]->category->name }}</h3>
+                        <h4 class="text-sm mt-1 text-gray-800">{{ $lastTreePost[2]->title }}</h4>
+                        <span class="flex items-center mt-1 text-xs gap-5 text-gray-600">
+                            <span>
+                                <i class="fas fa-comment"></i> {{ $lastTreePost[2]->comment->count() }}
+                            </span>
+                            Şahvezir
+                        </span>
                     </div>
                 </div>
             </div>
-        @endif
+        </div>
+
     </div>
-    <!-- büyük görünüm bitiş -->
+
+    <div class="bigBox bg-white mt-5">
+        <div class="w-11/12 m-auto flex mt-3">
+            <div class="w-3/4">
+                @foreach ($categoryList as $item)
+                    <x-post-card :post="$item"></x-post-card>
+                @endforeach
+                <div class="mt-5">
+                    {{ $categoryList->links() }}
+                </div>
+            </div>
+            <div class="w-1/4">
+                <x-right-panel :post="$gundemPosts"></x-right-panel>
+            </div>
+        </div>
+    </div>
+
     <x-footer></x-footer>
 
 </x-header>

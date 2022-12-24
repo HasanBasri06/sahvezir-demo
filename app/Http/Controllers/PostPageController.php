@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use PharIo\Manifest\Url;
 
 class PostPageController extends Controller
 {
@@ -15,11 +14,15 @@ class PostPageController extends Controller
     {
 
         Carbon::setLocale('tr');
-        $post = Post::where('slug', $slug)->get();
-    
+
+        $post = Post::latest()->where('slug', $slug)->get();
+        $gundemPosts = Post::latest()->where('category_id', 7)->get();
+
+
         return view("post", [
             "slug" => $slug,
-            "post" => $post[0]
+            "post" => $post[0],
+            'gundemPosts' => $gundemPosts
         ]);
     }
 
@@ -33,9 +36,12 @@ class PostPageController extends Controller
             exit;
         }
 
+        $gundemPosts = Post::latest()->get();
+
         return view('search', [
             "slug" => $request->input('search'),
-            "posts" => $posts
+            "posts" => $posts,
+            'gundemPosts' => $gundemPosts
         ]);
     }
 }

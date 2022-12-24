@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'rS': 'inset 25px 0px 0 0px rgba(177,225,250,1)',
+        'Rs': '2px 0px 4px 0 rgba(0,0,0,0.1)'
+      },
+      backgroundImage:{
+        'footerImg': "url('/images/footer.jpg')"
+      },
       colors:{
         'darkBlue':'#010326'
       },

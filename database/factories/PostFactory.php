@@ -20,10 +20,11 @@ class PostFactory extends Factory
             "title" => fake()->sentence(),
             "slug" => fake()->unique()->slug(),
             "body" => fake()->text(),
+            "references" => fake()->slug(),
             "image" => "images6.jpg",
             "author_id" => "1",
             "hits" => "44",
-            "category_id" => 1,
+            "category_id" => fake()->numberBetween(1,7),
         ];
     }
 }

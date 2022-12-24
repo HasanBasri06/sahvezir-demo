@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('image');
             $table->text('body');
+            $table->string('references');
             $table->integer('hits');
             $table->foreignId('author_id');
             $table->foreignId('category_id');

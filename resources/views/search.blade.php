@@ -1,15 +1,15 @@
 <x-header>
     <div class="bigBox">
-        <div class="w-full px-16 bg-white mt-3">
+        <div class="w-full px-16 max-sm:px-8 bg-white mt-3">
 
 
 
-            <div class="w-full mt-3 h-full flex mt-4">
+            <div class="max-sm:flex-col w-full mt-3 h-full flex mt-4">
 
 
 
                 {{-- sol panel --}}
-                <div class="w-3/4">
+                <div class="max-sm:h-auto max-sm:w-full w-3/4">
 
                     @if (count($posts) > 0)
                         <h3 class="mt-5 font-bold text-2xl">{{ Str::ucfirst($slug) }} İlgili Haberler </h3>
@@ -31,8 +31,8 @@
 
 
                 {{-- sağ panel --}}
-                <div class="w-3/12 px-2">
-                    <x-right-panel></x-right-panel>
+                <div class="max-sm:w-full max-sm:mt-5 w-3/12 px-2">
+                    <x-right-panel :post="$gundemPosts"></x-right-panel>
                 </div>
             </div>
 
